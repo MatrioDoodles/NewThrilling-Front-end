@@ -1,0 +1,24 @@
+<div class="login-wrapper" >
+
+    <mat-card class="box">
+        
+        <mat-card-header style="margin-bottom:40px;">
+            <mat-card-title>Se Connecter</mat-card-title>
+          </mat-card-header>
+          <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMsg}}</div>
+          <form autocomplete="off" class="example-form">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Login</mat-label>
+            <input matInput placeholder="Login" [(ngModel)]="username" name="username" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Mot De Passe</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Mot de passe" [(ngModel)]="password" name="password" required>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <button mat-stroked-button  (click)=handleLogin()  class="btn-block btn-color">Login</button>
+        </form>
+    </mat-card>
+    </div>

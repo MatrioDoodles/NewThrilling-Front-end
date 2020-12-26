@@ -12,9 +12,9 @@ export class User{
     public phone:string,
     public adress:string,
     public password:string,
+    public city:string,
+    public salary:string,
     public role:Role,
-    public users:User[],
-    public tenant:User
   ){}
 }
 export class Role{
@@ -33,12 +33,9 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
   getAllUsers(){
-    if(sessionStorage.getItem('role')=== "SUPER_ADMIN" )
     return this.httpClient
    .get<User[]>(`${API_URL}/${ENTITY_URL}/GetAllUsers`);
-   else 
-   return this.httpClient
-   .get<User[]>(`${API_URL}/${ENTITY_URL}/GetAllUsersT${sessionStorage.getItem('tenantId')}`);
+
   }
 
   // getUserByTenant(tenant){
@@ -55,7 +52,14 @@ export class UserService {
     return this.httpClient
    .get<User>(`${API_URL}/${ENTITY_URL}/searchUserByUsername/${username}`);
   }
-
+  getUserByRoleLivreur(){
+    return this.httpClient
+      .get<User[]>(`${API_URL}/${ENTITY_URL}/searchUserByRole/LIVREUR`);
+  }
+  getUserByRoleConsultant(){
+    return this.httpClient
+      .get<User[]>(`${API_URL}/${ENTITY_URL}/searchUserByRole/CONSULTANT`);
+  }
   UpdateUserBYid(User){
     return this.httpClient
     .put(`${API_URL}/${ENTITY_URL}/ModUser`,User);

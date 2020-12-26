@@ -6,9 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/misc/login/login.component';
 import { WelcomeComponent } from './components/misc/welcome/welcome.component';
-import { ProductsComponent } from './components/products/products.component';
-import { UsersComponent } from './components/users/users.component';
-import { OrdersComponent } from './components/orders/orders.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatCardModule } from '@angular/material/card';
@@ -30,16 +27,28 @@ import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './services/auth/http-interceptor.service';
 import { FooterComponent } from './components/misc/footer/footer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HeaderComponent } from './components/misc/header/header.component';
+import { ListUsersComponent } from './components/users/list-users/list-users.component';
+import { AddUserComponent } from './components/users/add-user/add-user.component';
+import { AddProductComponent } from './components/products/add-product/add-product.component';
+import { ListProductsComponent } from './components/products/list-products/list-products.component';
+import { ListOrdersComponent } from './components/orders/list-orders/list-orders.component';
+import { OrderComponent } from './components/orders/order/order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     LoginComponent,
-    ProductsComponent,
-    UsersComponent,
-    OrdersComponent,
     FooterComponent,
+    HeaderComponent,
+    ListUsersComponent,
+    AddUserComponent,
+    AddProductComponent,
+    ListProductsComponent,
+    ListOrdersComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,10 +73,11 @@ import { FooterComponent } from './components/misc/footer/footer.component';
     MatPaginatorModule,
     MatCheckboxModule,
     CommonModule,
-    MatExpansionModule
+    MatExpansionModule,
+    FontAwesomeModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true},
   ],
   bootstrap: [AppComponent]
 })

@@ -16,14 +16,16 @@ export class LoginComponent implements OnInit {
   hide = true;
 
   constructor(private router: Router,
-              private Auth:AuthenticationService) { }
-  
+              private Auth:AuthenticationService,
+  ) {}
+
   ngOnInit(): void {
   }
   handleLogin(){
   this.Auth.Login(this.username,this.password).subscribe(
     (response:any) =>{
       console.log(response)
+      // this.footer.setConnected(true);
       this.router.navigate(['welcome'])
     },
     (error:any) =>{
@@ -31,6 +33,6 @@ export class LoginComponent implements OnInit {
       this.invalidLogin=true
     }
   )
- 
+
   }
 }

@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button  class="example-icon">
+    <mat-icon>home</mat-icon>
+  </button>
+  <span>Cosmetics</span>
+  <span class="example-spacer"></span>
+  <div *ngIf="!connected">
+  <button routerLink="/login" mat-button >
+    Se Connecter
+  </button>
+
+  </div>
+  <div *ngIf="connected">
+    Bienvenue {{user}}
+
+    <button (click)="logout()" mat-button>
+      Se Deconnecter
+    </button>
+  </div>
+</mat-toolbar>

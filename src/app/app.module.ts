@@ -35,6 +35,8 @@ import { AddProductComponent } from './components/products/add-product/add-produ
 import { ListProductsComponent } from './components/products/list-products/list-products.component';
 import { ListOrdersComponent } from './components/orders/list-orders/list-orders.component';
 import { OrderComponent } from './components/orders/order/order.component';
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -74,10 +76,14 @@ import { OrderComponent } from './components/orders/order/order.component';
     MatCheckboxModule,
     CommonModule,
     MatExpansionModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true},
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   bootstrap: [AppComponent]
 })

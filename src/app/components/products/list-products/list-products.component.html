@@ -1,1 +1,69 @@
-<p>list-products works!</p>
+<div>
+
+  <mat-form-field appearance="outline" class="top_right">
+    <mat-label>Rechercher</mat-label>
+    <input matInput (keyup)="applyFilterClient($event.target.value)" placeholder="Rechercher">
+  </mat-form-field>
+
+  <table mat-table [dataSource]="Products" class="mat-elevation-z8">
+    <ng-container matColumnDef="picture">
+      <th mat-header-cell *matHeaderCellDef class="center_elems"> Image </th>
+      <td mat-cell *matCellDef="let element" class="center_elems"> <img src="{{element.picture}}" height="50px"> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="label">
+      <th mat-header-cell *matHeaderCellDef class="center_elems"> Libellé </th>
+      <td mat-cell *matCellDef="let element" class="center_elems">{{element.label}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="reference">
+      <th mat-header-cell *matHeaderCellDef class="center_elems"> Référence </th>
+      <td mat-cell class="center_elems" *matCellDef="let element">{{element.reference}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="prixVente">
+      <th mat-header-cell *matHeaderCellDef class="center_elems"> Prix Vente HT </th>
+      <td mat-cell class="center_elems" *matCellDef="let element"> {{element.selling_price_HT}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="prixProd">
+      <th mat-header-cell *matHeaderCellDef class="center_elems"> Prix Production HT </th>
+      <td mat-cell *matCellDef="let element" class="center_elems"> {{element.producing_price_HT}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateExp">
+      <th mat-header-cell *matHeaderCellDef class="center_elems"> Date D'expiration </th>
+      <td mat-cell *matCellDef="let element" class="center_elems"> {{element.expiring_date}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="qte">
+      <th mat-header-cell *matHeaderCellDef class="center_elems"> Quantité Stock </th>
+      <td mat-cell *matCellDef="let element" class="center_elems"> {{element.amount}} </td>
+    </ng-container>
+    <ng-container matColumnDef="qteAppro">
+      <th mat-header-cell *matHeaderCellDef class="center_elems"> Quantité Approvisionnement </th>
+      <td mat-cell *matCellDef="let element" class="center_elems"> {{element.supply_amount}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef class="center_elems"> Actions </th>
+      <td mat-cell *matCellDef="let element" class="center_elems">
+        <button mat-stroked-button (click)="Modifier(element)" class="btn btn-warning" style="margin-right: 10px;">Modifier</button>
+        <button mat-stroked-button (click)="Supprimer(element.id)" class="btn btn-danger" style="margin-right: 10px;">Supprimer</button>
+        <!-- <button mat-stroked-button (click)="AfficherDetails(element)" class="btn btn-in">Détails</button> -->
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator class="mat-elevation-z8" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  <button mat-button routerLink="/addProduct/0" class="btn btn-primary btn-lg" style="margin-top: 20px; margin-left: 45%;">
+    Ajouter Produit
+  </button>
+</div>
+
+
+
+

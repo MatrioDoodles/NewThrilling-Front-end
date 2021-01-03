@@ -1,4 +1,5 @@
 <footer class="fixed-bottom">
+
   <mat-toolbar color="primary">
 <div *ngIf="connected">
     <button mat-icon-button id="button-style" routerLink="listUsers/1">
@@ -21,7 +22,7 @@
       <fa-icon [icon]="faShoppingBasket"></fa-icon>
          Mes Commandes
     </button>
-    <button mat-icon-button id="button-style">
+    <button mat-icon-button id="button-style" routerLink="listProducts">
       <fa-icon [icon]="faBox"></fa-icon>
         Produits
     </button>

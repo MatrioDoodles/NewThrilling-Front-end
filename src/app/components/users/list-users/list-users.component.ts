@@ -93,7 +93,4 @@ export class ListUsersComponent implements OnInit {
       response => this.RetrieveAllUsers(this.userType)
     );
   }
-  ngOnDestroy() {
-
-  }
 }

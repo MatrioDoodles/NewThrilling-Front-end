@@ -1,1 +1,66 @@
-<p>add-product works!</p>
+<div class="center-card">
+  <mat-card class="center-card container-lg border" >
+    <mat-card-title style="padding: 20px;">
+      {{btnname}} un produit
+    </mat-card-title>
+    <mat-card-content>
+      <div class="alert alert-warning" *ngIf="formProduct.dirty && formProduct.invalid">Veuillez Renseigner tous les champs</div>
+      <form  #formProduct="ngForm" >
+        <div class="row">
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Libellé du produit</mat-label>
+            <input matInput [(ngModel)]="Product.label" name="label" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Réference du produit</mat-label>
+            <input matInput [(ngModel)]="Product.reference" name="reference" required>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Prix du vente du produit</mat-label>
+            <input matInput [(ngModel)]="Product.selling_price_HT" name="sellingprice" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Coût de production du produit</mat-label>
+            <input matInput [(ngModel)]="Product.producing_price_HT" name="produceprice" required>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Date Expiration du produit</mat-label>
+            <input matInput [(ngModel)]="Product.expiring_date" [matDatepicker]="picker" name="date" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Quantité du produit actuelle</mat-label>
+            <input matInput [(ngModel)]="Product.amount" name="amount" required>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Quantité d'approvisionnement du produit</mat-label>
+            <input matInput [(ngModel)]="Product.supply_amount" name="supplyamount" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Descritption du produit</mat-label>
+            <textarea matInput type="" [(ngModel)]="Product.description" name="desc" required></textarea>
+          </mat-form-field>
+        </div>
+        <div class="row d-flex  justify-content-center">
+            <mat-label>Image du produit
+              <input mat-input  name="currentFile" type ="file" accept="image/*" (change)="onFileChange($event)"/>
+            </mat-label>
+        </div>
+      </form>
+    </mat-card-content>
+    <mat-card-footer style="padding: 20px;">
+      <button mat-stroked-button (click)="!formProduct.invalid && submit()" class="btn-color">{{btnname}}</button>
+      <!--button mat-stroked-button routerLink="/listProducts/{{ProductType}}" >Annuler</button-->
+    </mat-card-footer>
+  </mat-card>
+</div>
+
+
+

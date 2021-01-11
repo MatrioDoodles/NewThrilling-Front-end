@@ -24,9 +24,16 @@ export class LoginComponent implements OnInit {
   handleLogin(){
   this.Auth.Login(this.username,this.password).subscribe(
     (response:any) =>{
-      console.log(response)
+
       // this.footer.setConnected(true);
-      this.router.navigate(['welcome'])
+      setTimeout(()=>{
+        if(sessionStorage.getItem('role')==='ADMINISTRATEUR')
+        this.Auth.checkConnectedUserRole(true);
+        else
+          this.Auth.checkConnectedUserRole(false);
+        this.router.navigate(['welcome'])
+      })
+
     },
     (error:any) =>{
       console.log(error)

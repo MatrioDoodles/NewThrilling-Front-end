@@ -2,30 +2,30 @@
 
   <mat-toolbar color="primary">
 <div *ngIf="connected">
-    <button mat-icon-button id="button-style" routerLink="listUsers/1">
+    <button *ngIf="Admin" mat-button routerLink="listUsers/1">
       <fa-icon [icon]="faUsers"></fa-icon>
          Utilisateurs
     </button>
-  <button mat-icon-button id="button-style" routerLink="listUsers/2">
+  <button *ngIf="Admin" mat-button routerLink="listUsers/2">
     <fa-icon [icon]="faUsers"></fa-icon>
     Consultants
   </button>
-    <button mat-icon-button id="button-style" routerLink="listUsers/3">
+    <button *ngIf="Admin" mat-button routerLink="listUsers/3">
       <fa-icon [icon]="faTruck"></fa-icon>
          Livreurs
     </button>
-    <button mat-icon-button id="button-style">
+    <button  mat-button  routerLink="listOrders">
       <fa-icon [icon]="faShoppingCart"></fa-icon>
          Commandes
     </button>
-    <button mat-icon-button id="button-style">
+    <button mat-button routerLink="listOrdersByConsultant">
       <fa-icon [icon]="faShoppingBasket"></fa-icon>
          Mes Commandes
     </button>
-    <button mat-icon-button id="button-style" routerLink="listProducts">
+    <button *ngIf="Admin" mat-button routerLink="listProducts">
       <fa-icon [icon]="faBox"></fa-icon>
         Produits
     </button>
-</div>
+  </div>
   </mat-toolbar>
 </footer>

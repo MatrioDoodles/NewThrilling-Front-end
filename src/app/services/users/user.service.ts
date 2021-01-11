@@ -56,6 +56,10 @@ export class UserService {
     return this.httpClient
       .get<User[]>(`${API_URL}/${ENTITY_URL}/searchUserByRole/LIVREUR`);
   }
+  getUserByRoleLivreurAndCity(city){
+    return this.httpClient
+      .get<User[]>(`${API_URL}/${ENTITY_URL}/searchUserByRoleAndCity/LIVREUR/${city}`);
+  }
   getUserByRoleConsultant(){
     return this.httpClient
       .get<User[]>(`${API_URL}/${ENTITY_URL}/searchUserByRole/CONSULTANT`);

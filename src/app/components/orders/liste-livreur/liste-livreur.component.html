@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Veulliez Assigner la commande a un livreur</h2>
+
+<mat-dialog-content >
+  <form #livform="ngForm">
+<mat-form-field appearance="outline">
+  <mat-label>Liste des Livreurs</mat-label>
+  <mat-select required>
+    <mat-option *ngFor="let val of livreurs" [(ngModel)]="livreur" value="{{val}}">{{val.name}} Num {{val.phone}}</mat-option>
+  </mat-select>
+</mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="mat-raised-button"(click)="close()">Fermer</button>
+  <button class="mat-raised-button mat-primary" [disabled]="!livform.invalid" (click)="save()">Choisir</button>
+</mat-dialog-actions>

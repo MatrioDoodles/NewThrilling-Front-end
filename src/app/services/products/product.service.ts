@@ -15,6 +15,7 @@ export class Product{
     public amount:number,
     public supply_amount:number,
     public description:string,
+    public qteOrdered:number,
 
   ){}
 }

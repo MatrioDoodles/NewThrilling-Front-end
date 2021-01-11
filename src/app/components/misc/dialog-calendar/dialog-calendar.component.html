@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Veuillez Choisir une Nouvelle date de livraison</h2>
+
+<mat-dialog-content>
+  <mat-form-field appearance="outline" class="col">
+    <mat-label>Date Expiration du produit</mat-label>
+    <input matInput [(ngModel)]="date" [matDatepicker]="picker" name="date" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="mat-raised-button"(click)="close()">Fermer</button>
+  <button class="mat-raised-button mat-primary" (click)="save()">Confirmer</button>
+</mat-dialog-actions>

@@ -21,6 +21,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from "@angular/material/dialog";
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
@@ -37,6 +38,10 @@ import { ListOrdersComponent } from './components/orders/list-orders/list-orders
 import { OrderComponent } from './components/orders/order/order.component';
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from '@angular/material/core';
+import { MyOrdersComponent } from './components/orders/my-orders/my-orders.component';
+import { ListeLivreurComponent } from './components/orders/liste-livreur/liste-livreur.component';
+import { ConfirmAnnulationComponent } from './components/misc/confirm-annulation/confirm-annulation.component';
+import { DialogCalendarComponent } from './components/misc/dialog-calendar/dialog-calendar.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +56,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     ListProductsComponent,
     ListOrdersComponent,
     OrderComponent,
+    MyOrdersComponent,
+    ListeLivreurComponent,
+    ConfirmAnnulationComponent,
+    DialogCalendarComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,13 +87,15 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatExpansionModule,
     FontAwesomeModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true},
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ListeLivreurComponent,ConfirmAnnulationComponent]
 })
 export class AppModule { }

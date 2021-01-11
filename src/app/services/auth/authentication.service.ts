@@ -3,6 +3,8 @@ import {EventEmitter, Injectable, Output} from '@angular/core';
 import { API_URL } from 'src/app/app.const';
 import { map } from 'rxjs/operators';
 import { UserService } from '../users/user.service';
+import {ProductsWithQTE} from "../../../../../CosmeticsEcom/src/app/services/orders/order.service";
+import {Subject} from "rxjs";
 
 
 export const TOKEN = 'token'
@@ -12,12 +14,17 @@ export const AUTHENTICATED_USER = 'authenticatedUser'
   providedIn: 'root'
 })
 export class AuthenticationService {
+  private _role = new Subject<boolean>();
+  role$= this._role.asObservable();
   @Output() getLoggedIn: EventEmitter<any> = new EventEmitter();
   constructor(
     private httpClient: HttpClient,
     private userService:UserService
               ) { }
 
+  checkConnectedUserRole(role) {
+    this._role.next(role);
+  }
   isUserLogged(){
     let user = sessionStorage.getItem(AUTHENTICATED_USER);
     return !(user === null)
@@ -43,6 +50,7 @@ export class AuthenticationService {
   // }
   //JWTAuth
   Login(username,password){
+
     return this.httpClient
    .post<any>(`${API_URL}/authenticate`,{
     username,
@@ -57,8 +65,7 @@ export class AuthenticationService {
                     this.userService.getUserByUsername(username).subscribe(
                       response => {
                         console.log(response)
-                        //sessionStorage.setItem('role',response.role.label);
-                        sessionStorage.setItem('user',response.name);
+                        sessionStorage.setItem('role',response.role.label);
 
                       }
                     )

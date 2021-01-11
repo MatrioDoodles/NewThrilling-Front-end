@@ -22,7 +22,7 @@ export class AddProductComponent implements OnInit {
   ngOnInit(): void {
     if (this.route.snapshot.params['updateElement'] === '0') {
       this.Product = new Product(null, '','', null,
-        null, '', null,true,null,null,'')
+        null, '', null,true,null,null,'',null)
       this.btnname = "Ajouter"
     }
 

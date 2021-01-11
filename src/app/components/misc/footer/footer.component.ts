@@ -16,14 +16,28 @@ export class FooterComponent implements OnInit {
   faShoppingBasket = faShoppingBasket;
   faBox = faBox;
   connected =false;
+  role;
+  Admin;
 
   constructor(private authService:AuthenticationService) {
-      authService.getLoggedIn.subscribe(status => this.connected =status)
+      authService.getLoggedIn.subscribe(status => {
+        this.connected = status;
+      })
+    authService.role$.subscribe(
+      response => {
+        this.Admin=response;
+      }
+    );
 
 
   }
 
   ngOnInit(): void {
+    this.role=sessionStorage.getItem('role');
+    if(this.role === 'ADMINISTRATEUR')
+      this.Admin=true;
+    else
+      this.Admin=false;
     if(sessionStorage.getItem('token')!=null)
       this.connected = true;
     else

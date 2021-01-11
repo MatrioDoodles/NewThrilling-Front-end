@@ -28,7 +28,7 @@
 
     <ng-container matColumnDef="num">
       <th mat-header-cell *matHeaderCellDef class="center_elems"> Numéro Client </th>
-      <td mat-cell *matCellDef="let element" class="center_elems"> {{element.client_tel}} </td>
+      <td mat-cell *matCellDef="let element" class="center_elems"> <p style="color: green; font-weight: bold;"> {{element.client_tel}} </p> </td>
     </ng-container>
 
     <ng-container matColumnDef="adresse">
@@ -41,11 +41,11 @@
       <th mat-header-cell *matHeaderCellDef class="center_elems"> Liste Produits Commandé </th>
       <td mat-cell *matCellDef="let element" class="center_elems">
         <mat-form-field appearance="outline">
-        <mat-label>Produits commandé</mat-label>
-        <mat-select >
-          <mat-option *ngFor="let val of element.products" value="{{val}}">{{val.label}} x Qté {{val.qteOrdered}}</mat-option>
-        </mat-select>
-      </mat-form-field></td>
+          <mat-label>Produits commandé</mat-label>
+          <mat-select >
+            <mat-option *ngFor="let val of element.products" value="{{val}}">{{val.label}} x Qté {{val.qteOrdered}}</mat-option>
+          </mat-select>
+        </mat-form-field></td>
     </ng-container>
     <ng-container matColumnDef="total">
       <th mat-header-cell *matHeaderCellDef class="center_elems"> Montant Total</th>
@@ -55,8 +55,16 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef class="center_elems"> Actions </th>
       <td mat-cell *matCellDef="let element" class="center_elems">
-        <button mat-stroked-button [disabled]="element.status === 'Annulé'" (click)="Confirmer(element)" class="btn btn-success" style="margin-right: 10px;">Confirmer</button>
-        <button mat-stroked-button [disabled]="element.status === 'Annulé'" (click)="Annuler(element)" class="btn btn-danger" style="margin-right: 10px;">Annuler</button>
+        <button *ngIf="element.status === 'Confirmé'" mat-stroked-button [disabled]="element.status === 'Annulé'" (click)="Confirmer(element)"
+                class="btn btn-success" style="margin-right: 10px;">Double Confirmer</button>
+        <button *ngIf="element.status === 'Double Confirmé'" mat-stroked-button [disabled]="element.status === 'Annulé'" (click)="AssignerLivreur(element)"
+                class="btn btn-info" style="margin-right: 10px;">Assigner Livreur</button>
+        <button *ngIf="element.status === 'En cours de livraison'" mat-stroked-button (click)="Livre(element)"
+                class="btn btn-info" style="margin-right: 10px;">Livré</button>
+        <button *ngIf="element.status === 'En cours de livraison'" mat-stroked-button (click)="reporter(element)"
+                class="btn btn-info" style="margin-right: 10px;">Reporté</button>
+        <button mat-stroked-button [disabled]="element.status === 'Annulé' || element.status === 'En cours de livraison' || element.status === 'Livré'"
+                (click)="Annuler(element)" class="btn btn-danger" style="margin-right: 10px;">Annuler</button>
         <!-- <button mat-stroked-button (click)="AfficherDetails(element)" class="btn btn-in">Détails</button> -->
       </td>
     </ng-container>
@@ -65,9 +73,9 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   <mat-paginator class="mat-elevation-z8" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-  <button mat-button routerLink="/addProduct/0" class="btn btn-primary btn-lg" style="margin-top: 20px; margin-left: 45%;">
+  <!-- button mat-button routerLink="/addProduct/0" class="btn btn-primary btn-lg" style="margin-top: 20px; margin-left: 45%;">
     Ajouter Une Commande
-  </button>
+  </button-->
 </div>
 
 

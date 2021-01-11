@@ -7,6 +7,8 @@ import {AddUserComponent} from "./components/users/add-user/add-user.component";
 import {RouteGuardService} from "./services/auth/route-guard.service";
 import {ListProductsComponent} from "./components/products/list-products/list-products.component";
 import {AddProductComponent} from "./components/products/add-product/add-product.component";
+import {ListOrdersComponent} from "./components/orders/list-orders/list-orders.component";
+import {MyOrdersComponent} from "./components/orders/my-orders/my-orders.component";
 
 
 const routes: Routes = [
@@ -17,7 +19,9 @@ const routes: Routes = [
   { path: 'addUser/:typeUser/:updateElement', component: AddUserComponent, canActivate:[RouteGuardService] },
   { path: 'listProducts', component: ListProductsComponent, canActivate:[RouteGuardService] },
   { path: 'addProduct/:updateElement', component: AddProductComponent, canActivate:[RouteGuardService] },
-  { path: 'welcome', component: WelcomeComponent, canActivate:[RouteGuardService] },
+  { path: 'listOrders', component: ListOrdersComponent, canActivate:[RouteGuardService] },
+  { path: 'listOrdersByConsultant', component: MyOrdersComponent, canActivate:[RouteGuardService] },
+  { path: 'welcome', component: WelcomeComponent, canActivate:[RouteGuardService] }
 
 ];
 

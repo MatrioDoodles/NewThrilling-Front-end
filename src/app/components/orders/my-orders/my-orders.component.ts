@@ -63,7 +63,7 @@ export class MyOrdersComponent implements OnInit {
         {
 
           this.Ordersdat[i].products =[] ;
-          this.OrderService.getOrderproducts( this.Ordersdat[i].id).subscribe(
+          this.OrderService.getOrderproducts(this.Ordersdat[i].id).subscribe(
             (response:OrderProduct[]) => {
               setTimeout(() => {
                 for (let j = 0; j < this.Ordersdat.length; j++) {
@@ -77,8 +77,8 @@ export class MyOrdersComponent implements OnInit {
         }
         //this.Orders = new MatTableDataSource(data);
         setTimeout(() => {
-          this.SortedOrders = _.sortBy(this.Ordersdat,'status');
-          this.Ordersdat = this.SortedOrders.reverse();
+         // this.SortedOrders = _.sortBy(this.Ordersdat,'status');
+          //this.Ordersdat = this.SortedOrders.reverse();
           this.Orders = new MatTableDataSource(this.Ordersdat);
           console.log(this.Ordersdat)
           this.Orders.paginator = this.paginator;
@@ -146,6 +146,7 @@ export class MyOrdersComponent implements OnInit {
         choice = data
         if(choice != null && choice != undefined) {
           SelectedOrder.status = "Annulé"
+          SelectedOrder.aborted = true
           this.OrderService.UpdateOrderBYid(SelectedOrder).subscribe(
             response => this.RetrieveAllOrders()
           );
@@ -156,6 +157,8 @@ export class MyOrdersComponent implements OnInit {
   }
   Livre(SelectedOrder:Order){
     SelectedOrder.status = "Livré"
+    SelectedOrder.shipped = true
+    SelectedOrder.paid = true
     this.OrderService.UpdateOrderBYid(SelectedOrder).subscribe(
       response => this.RetrieveAllOrders()
     );

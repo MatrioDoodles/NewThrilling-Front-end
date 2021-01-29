@@ -1,7 +1,11 @@
 <footer class="fixed-bottom">
 
-  <mat-toolbar color="primary">
+  <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-around center">
 <div *ngIf="connected">
+  <button *ngIf="Admin" mat-button routerLink="welcome">
+    <fa-icon [icon]="faTachometerAlt"></fa-icon>
+    Dashboard
+  </button>
     <button *ngIf="Admin" mat-button routerLink="listUsers/1">
       <fa-icon [icon]="faUsers"></fa-icon>
          Utilisateurs
@@ -25,6 +29,14 @@
     <button *ngIf="Admin" mat-button routerLink="listProducts">
       <fa-icon [icon]="faBox"></fa-icon>
         Produits
+    </button>
+    <button mat-button routerLink="comments">
+      <fa-icon [icon]="faComment"></fa-icon>
+      Commentaires
+    </button>
+    <button mat-button routerLink="contacts">
+      <fa-icon [icon]="faAddressBook"></fa-icon>
+      Requetes de Contacts
     </button>
   </div>
   </mat-toolbar>

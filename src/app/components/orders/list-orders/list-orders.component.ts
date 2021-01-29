@@ -68,8 +68,8 @@ export class ListOrdersComponent implements OnInit {
         }
         //this.Orders = new MatTableDataSource(data);
         setTimeout(() => {
-          this.SortedOrders = _.sortBy(this.Ordersdat,'status');
-          this.Ordersdat = this.SortedOrders.reverse();
+         // this.SortedOrders = _.sortBy(this.Ordersdat,'status');
+         // this.Ordersdat = this.SortedOrders;
           this.Orders = new MatTableDataSource(this.Ordersdat);
           this.Orders.paginator = this.paginator;
           this.Orders.sort = this.sort; });
@@ -105,6 +105,7 @@ export class ListOrdersComponent implements OnInit {
         choice = data
         if(choice != null && choice != undefined) {
           SelectedOrder.status = "Annulé"
+          SelectedOrder.aborted = true
           this.OrderService.UpdateOrderBYid(SelectedOrder).subscribe(
             response => this.RetrieveAllOrders()
           );

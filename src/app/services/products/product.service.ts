@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { API_URL } from 'src/app/app.const';
+import {Category} from "../categories/category.service";
 
 export class Product{
   constructor(
@@ -16,6 +17,7 @@ export class Product{
     public supply_amount:number,
     public description:string,
     public qteOrdered:number,
+    public category:Category,
 
   ){}
 }

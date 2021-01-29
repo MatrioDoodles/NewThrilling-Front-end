@@ -22,12 +22,12 @@ export class Order{
     public matricule:string,
     public shipped:boolean,
     public aborted:boolean,
-    public orde_date:Date,
     public Shipping_date:Date,
+    public orde_date:Date,
     public OrderProduct:OrderProduct[],
     public products:Product[],
-    public livreur:User,
     public consultant:User,
+    public livreur:User,
   ){}
 }
 export class OrderProduct {
@@ -39,8 +39,7 @@ export class OrderProduct {
   ){}
 
 
-}
-export class ProductsWithQTE {
+}export class ProductsWithQTE {
   constructor(
     public quantity:number,
     public product:Product,

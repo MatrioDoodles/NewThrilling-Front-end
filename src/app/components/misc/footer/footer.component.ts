@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { faUsers,faTruck,faShoppingCart,faShoppingBasket,faBox } from '@fortawesome/free-solid-svg-icons';
+import { faUsers,
+         faTruck,
+         faShoppingCart,
+         faShoppingBasket,
+         faBox,
+         faTachometerAlt,
+         faAddressBook,
+         faComment,} from '@fortawesome/free-solid-svg-icons';
 import {NavigationEnd, Router} from "@angular/router";
 import {AuthenticationService} from "../../../services/auth/authentication.service";
 
@@ -15,6 +22,9 @@ export class FooterComponent implements OnInit {
   faShoppingCart = faShoppingCart;
   faShoppingBasket = faShoppingBasket;
   faBox = faBox;
+  faTachometerAlt = faTachometerAlt;
+  faAddressBook = faAddressBook;
+  faComment = faComment;
   connected =false;
   role;
   Admin;

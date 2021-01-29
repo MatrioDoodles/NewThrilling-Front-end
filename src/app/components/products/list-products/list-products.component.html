@@ -2,7 +2,7 @@
 
   <mat-form-field appearance="outline" class="top_right">
     <mat-label>Rechercher</mat-label>
-    <input matInput (keyup)="applyFilterClient($event.target.value)" placeholder="Rechercher">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Rechercher">
   </mat-form-field>
 
   <table mat-table [dataSource]="Products" class="mat-elevation-z8">

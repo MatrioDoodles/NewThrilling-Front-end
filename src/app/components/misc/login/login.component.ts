@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    sessionStorage.clear();
+    localStorage.clear();
   }
   handleLogin(){
   this.Auth.Login(this.username,this.password).subscribe(

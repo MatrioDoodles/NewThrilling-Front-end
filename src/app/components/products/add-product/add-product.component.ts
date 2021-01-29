@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Product, ProductService} from "../../../services/products/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Category, CategoryService} from "../../../services/categories/category.service";
 
 @Component({
   selector: 'app-add-product',
@@ -12,18 +13,28 @@ export class AddProductComponent implements OnInit {
   Product: Product
   Productresp:Product
   ProductType;
+  cat:Category[];
   currentFile: File;
   btnname: string
   constructor(private route: ActivatedRoute,
               private ProductService: ProductService,
-              private router: Router) {
+              private router: Router,
+              private categoryService:CategoryService) {
   }
 
   ngOnInit(): void {
     if (this.route.snapshot.params['updateElement'] === '0') {
       this.Product = new Product(null, '','', null,
-        null, '', null,true,null,null,'',null)
+        null, '', null,true,null,null,'',null,null)
       this.btnname = "Ajouter"
+      this.categoryService.getAllCategories().subscribe(
+        (response:Category[]) => {
+          setTimeout(()=>{
+            this.cat = response;
+          })
+
+      }
+      )
     }
 
     else {
@@ -62,6 +73,10 @@ export class AddProductComponent implements OnInit {
               this.router.navigate(['listProducts']);}})})}
 
 
+  }
+  logSelection()
+  {
+    console.log(this.Product.category)
   }
 
 }

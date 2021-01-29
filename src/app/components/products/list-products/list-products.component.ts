@@ -31,7 +31,7 @@ export class ListProductsComponent implements OnInit {
       this.RetrieveAllProducts();
   }
 
-  applyFilterClient(filterValue: string) {
+  applyFilter(filterValue: string) {
     filterValue = filterValue.trim() // Remove whitespace
     filterValue = filterValue.toLowerCase() // Datasource defaults to lowercase matches
     this.Products.filter = filterValue

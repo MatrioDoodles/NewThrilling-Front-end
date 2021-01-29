@@ -64,7 +64,6 @@ export class AuthenticationService {
                     this.getLoggedIn.emit(true);
                     this.userService.getUserByUsername(username).subscribe(
                       response => {
-                        console.log(response)
                         sessionStorage.setItem('role',response.role.label);
 
                       }

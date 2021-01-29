@@ -42,6 +42,11 @@ import { MyOrdersComponent } from './components/orders/my-orders/my-orders.compo
 import { ListeLivreurComponent } from './components/orders/liste-livreur/liste-livreur.component';
 import { ConfirmAnnulationComponent } from './components/misc/confirm-annulation/confirm-annulation.component';
 import { DialogCalendarComponent } from './components/misc/dialog-calendar/dialog-calendar.component';
+import { ListboxModule } from "primeng/listbox";
+import {DropdownModule} from "primeng/dropdown";
+import {MatSortModule} from "@angular/material/sort";
+import { CommentsValidationsComponent } from './components/comments-validations/comments-validations.component';
+import { ContactFormsComponent } from './components/contact-forms/contact-forms.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +65,8 @@ import { DialogCalendarComponent } from './components/misc/dialog-calendar/dialo
     ListeLivreurComponent,
     ConfirmAnnulationComponent,
     DialogCalendarComponent,
+    CommentsValidationsComponent,
+    ContactFormsComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,6 +96,9 @@ import { DialogCalendarComponent } from './components/misc/dialog-calendar/dialo
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
+    ListboxModule,
+    DropdownModule,
+    MatSortModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true},

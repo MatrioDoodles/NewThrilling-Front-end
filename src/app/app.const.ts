@@ -1,1 +1,1 @@
-export const API_URL = 'http://localhost:8181'
+export const API_URL = 'https://https://newthrillingbackend.herokuapp.com/'

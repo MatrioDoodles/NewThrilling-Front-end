@@ -3,7 +3,6 @@ import {EventEmitter, Injectable, Output} from '@angular/core';
 import { API_URL } from 'src/app/app.const';
 import { map } from 'rxjs/operators';
 import { UserService } from '../users/user.service';
-import {ProductsWithQTE} from "../../../../../CosmeticsEcom/src/app/services/orders/order.service";
 import {Subject} from "rxjs";
 
 

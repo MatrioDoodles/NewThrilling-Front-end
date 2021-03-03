@@ -23,7 +23,8 @@
 
     <ng-container matColumnDef="rating">
       <th mat-header-cell *matHeaderCellDef class="center_elems"> Note Attribué </th>
-      <td mat-cell class="center_elems" *matCellDef="let element"><p class="review-rating" *ngIf="element.rating">
+      <td mat-cell class="center_elems" *matCellDef="let element">
+        <p class="review-rating" *ngIf="element.rating">
         <!-- 1 star  -->
         <i [class]="(element.rating == 0) ? 'far fa-star' : (element.rating > 0 && element.rating < 1) ? 'fas fa-star-half-alt' : 'fas fa-star'"></i>
 

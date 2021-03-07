@@ -27,14 +27,7 @@ export class AddProductComponent implements OnInit {
       this.Product = new Product(null, '','', null,
         null, '', null,true,null,null,'',null,null)
       this.btnname = "Ajouter"
-      this.categoryService.getAllCategories().subscribe(
-        (response:Category[]) => {
-          setTimeout(()=>{
-            this.cat = response;
-          })
 
-      }
-      )
     }
 
     else {
@@ -46,7 +39,14 @@ export class AddProductComponent implements OnInit {
       )
       this.btnname = "Modifier"
     }
-
+    this.categoryService.getAllCategories().subscribe(
+      (response:Category[]) => {
+        setTimeout(()=>{
+          this.cat = response;
+          console.log(this.cat)
+        })
+      }
+    )
   }
   onFileChange(event){
     this.currentFile = event.target.files[0];

@@ -49,9 +49,10 @@
           </mat-form-field>
         </div>
 
-        <div class="row">
+        <!-- div *ngIf="Product.category != null || Product.category != undefined " class="row"-->
+          <div class="row">
           <mat-form-field appearance="outline" class="col">
-            <mat-label>Produits commandé</mat-label>
+            <mat-label>Categorie du produit</mat-label>
             <mat-select (select)="logSelection()" [(ngModel)]="Product.category.id" name="Category" required>
               <mat-option *ngFor="let val of cat"  value="{{val.id}}">{{val.label}}</mat-option>
             </mat-select>

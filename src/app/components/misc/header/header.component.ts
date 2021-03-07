@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
       this.connected = true;
     else
       this.connected = false;
-    this.user = sessionStorage.getItem('user');
+    this.user = sessionStorage.getItem('authenticatedUser');
   }
  logout()
  {

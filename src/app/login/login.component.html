@@ -1,0 +1,71 @@
+<section class="ftco-sectionimg js-fullheight" style="background-image: url(../../assets/imgs/bg.jpg);height: 100%" >
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center mb-5">
+        <h2 class="heading-section">Se Connecter</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="login-wrap p-0">
+          <h3 class="mb-4 text-center">   </h3>
+          <form action="#" class="signin-form">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Username" [(ngModel)]="username"  name="Username" required>
+            </div>
+            <div class="form-group">
+              <input id="password-field" type="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="Password" required>
+              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+            </div>
+            <div class="form-group">
+              <button  (click)=handleLogin()  class="form-control btn btn-primary submit px-3">Login</button>
+            </div>
+            <div class="form-group d-md-flex">
+              <div class="w-50">
+                <label class="checkbox-wrap checkbox-primary">Remember Me
+                  <input type="checkbox" checked>
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <div class="w-50 text-md-right">
+                <a href="#" style="color: #fff">Forgot Password</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<!--div class="login-wrapper" >
+
+  <div class="box">
+    <div class="card">
+
+        <div class="card-header">
+            <div class="card-title">Se Connecter</div>
+          </div>
+          <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMsg}}</div>
+          <form autocomplete="off" class="example-form">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Login</mat-label>
+            <input matInput placeholder="Login" [(ngModel)]="username" name="username" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Mot De Passe</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Mot de passe" [(ngModel)]="password" name="password" required>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+            <div class="card-footer">
+              <button pButton  (click)=handleLogin() label="Login"  pRipple class="btn-block btn-info"></button>
+            </div>
+        </form>
+    </div>
+  </div>
+    </div-->

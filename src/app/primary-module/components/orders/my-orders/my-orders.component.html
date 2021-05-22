@@ -1,0 +1,135 @@
+
+
+<div class="card" style="width: 90%; left: 5%;">
+  <p-table #dt3 [value]="Orders" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+           [rowsPerPageOptions]="[10,25,50]" [loading]="loading" styleClass="p-datatable-customers p-datatable-gridlines"
+           [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+    <ng-template pTemplate="caption">
+      <h1 style="color: #7e1727; font-weight: bold; text-decoration: underline; text-align: center;">Mes Commandes</h1>
+      <div class="p-d-flex">
+
+              <span class="p-input-icon-left p-ml-auto">
+                  <i class="pi pi-search"></i>
+                  <input pInputText type="text" (input)="dt3.filterGlobal($event.target.value, 'contains')"
+                         placeholder="Search keyword" />
+              </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Matricule
+
+          </div>
+        </th>
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Status
+          </div>
+        </th>
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Ville
+          </div>
+        </th>
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+           Nom Client
+          </div>
+        </th>
+
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Numéro Client
+          </div>
+        </th>
+
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Adress Client
+          </div>
+        </th>
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Liste Produits Commandé
+          </div>
+        </th>
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Montant Total
+          </div>
+        </th>
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Actions
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-order>
+      <tr>
+        <td>
+          {{order.matricule}}
+        </td>
+        <td>
+          {{order.status}}
+        </td>
+        <td>
+          {{order.city}}
+        </td>
+        <td>
+          {{order.client_name}}
+        </td>
+
+        <td>
+          {{order.client_tel}}
+        </td>
+
+        <td>
+          {{order.client_adress}}
+        </td>
+
+        <td>
+          <mat-form-field appearance="outline" style="width: 80%">
+            <mat-label>Produits commandé</mat-label>
+            <mat-select >
+              <mat-option *ngFor="let val of order.products" value="{{val}}">{{val.label}} x Qté {{val.qteOrdered}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+
+        <td>
+          {{order.total | currency:'MAD'}}
+        </td>
+
+        <td  style="text-align:center">
+
+          <button *ngIf="order.status === 'Confirmé'" mat-stroked-button [disabled]="order.aborted" (click)="Confirmer(order)"
+                  class="btn btn-success" style="margin-right: 10px;">Double Confirmer</button>
+          <button *ngIf="order.status === 'Double Confirmé'" mat-stroked-button [disabled]="order.aborted" (click)="AssignerLivreur(order)"
+                  class="btn btn-info" style="margin-right: 10px;">Assigner Livreur</button>
+          <button *ngIf="order.status === 'En cours de livraison'" mat-stroked-button (click)="Livre(order)"
+                  class="btn btn-info" style="margin-right: 10px;">Livré</button>
+          <button *ngIf="order.status === 'En cours de livraison'" mat-stroked-button (click)="reporter(order)"
+                  class="btn btn-info" style="margin-right: 10px;">Reporté</button>
+          <button mat-stroked-button [disabled]="order.aborted || order.status === 'En cours de livraison' || order.shipped"
+                  (click)="Annuler(order)" class="btn btn-danger" style="margin-right: 10px;">Annuler</button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="9">Pas de Commandes Trouvé.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+</div>
+
+
+
+
+
+

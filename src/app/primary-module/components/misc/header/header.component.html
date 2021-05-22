@@ -1,0 +1,11 @@
+
+
+  <p-menubar [model]="items" autoDisplay="true" styleClass="ui-menubar">
+    <ng-template pTemplate="start">
+      <img src="../../../../../assets/imgs/logo2.jpg" height="50" class="p-mr-2">
+    </ng-template>
+    <ng-template pTemplate="end">
+      <button pButton pRipple label="Logout" icon="pi pi-power-off" (click)="logout()" class="p-button-rounded p-button-danger"></button>
+    </ng-template>
+
+  </p-menubar>

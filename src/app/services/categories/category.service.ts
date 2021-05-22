@@ -9,7 +9,6 @@ export class Category{
   public id:number,
   public label:string,
   public description:string,
-  public products:Product[]
   ){}
 }
 export const ENTITY_URL = 'categories'

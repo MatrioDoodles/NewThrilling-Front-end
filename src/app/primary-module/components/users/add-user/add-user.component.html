@@ -1,0 +1,58 @@
+
+  <div class="card center-card" >
+    <div class="card-header" style="padding: 20px;">
+      <p style="color: #7e1727; font-weight: bold; text-decoration: underline; text-align: center;font-size: x-large">  {{btnname}} un {{typeUser}} </p>
+    </div>
+    <div class="card-body">
+      <div class="alert alert-warning" *ngIf="formUser.dirty && formUser.invalid">Veuillez Renseigner tous les champs</div>
+      <form  #formUser="ngForm" >
+        <div class="row">
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Login Du {{typeUser}}</mat-label>
+            <input matInput [(ngModel)]="User.username" name="username" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Mot de passe Du {{typeUser}}</mat-label>
+            <input matInput [(ngModel)]="User.password" name="password" required>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Nom Du {{typeUser}}</mat-label>
+            <input matInput [(ngModel)]="User.name" name="name" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Prénom Du {{typeUser}}</mat-label>
+            <input matInput [(ngModel)]="User.surname" name="surname" required>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Téléphone Du {{typeUser}}</mat-label>
+            <input matInput [(ngModel)]="User.phone" name="phone" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Email Du {{typeUser}}</mat-label>
+            <input matInput [(ngModel)]="User.mail" name="email" required>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Adresse Du {{typeUser}}</mat-label>
+            <input matInput [(ngModel)]="User.adress" name="adress" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Ville Du {{typeUser}}</mat-label>
+            <input matInput [(ngModel)]="User.city" name="city" required>
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer" >
+      <button mat-stroked-button (click)="!formUser.invalid && submit()" class="btn-color">{{btnname}}</button>
+      <!--button mat-stroked-button routerLink="/listUsers/{{userType}}" >Annuler</button-->
+    </div>
+  </div>
+
+
+

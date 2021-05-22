@@ -1,0 +1,115 @@
+
+
+<div class="card" style="width: 90%; left: 5%;">
+  <p-table #dt3 [value]="Comments" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+           [rowsPerPageOptions]="[10,25,50]" [loading]="loading" styleClass="p-datatable-customers p-datatable-gridlines"
+           [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+    <ng-template pTemplate="caption">
+      <h1 style="color: #7e1727; font-weight: bold; text-decoration: underline; text-align: center;">Liste des Commentaires</h1>
+      <div class="p-d-flex">
+
+              <span class="p-input-icon-left p-ml-auto">
+                  <i class="pi pi-search"></i>
+                  <input pInputText type="text" (input)="dt3.filterGlobal($event.target.value, 'contains')"
+                         placeholder="Search keyword" />
+              </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Numéro commentaire
+
+          </div>
+        </th>
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Commentaire
+          </div>
+        </th>
+
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Nom du commentateur
+          </div>
+        </th>
+
+
+
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Note Attribué
+          </div>
+        </th>
+
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Produit en question
+          </div>
+        </th>
+
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Actions
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-element>
+      <tr>
+        <td>
+          {{element.id}}
+        </td>
+        <td>
+          {{element.comment}}
+        </td>
+        <td>
+          {{element.nom}}
+        </td>
+
+        <td>
+          <p class="review-rating" *ngIf="element.rating">
+            <!-- 1 star  -->
+            <i [class]="(element.rating == 0) ? 'far fa-star' : (element.rating > 0 && element.rating < 1) ? 'fas fa-star-half-alt' : 'fas fa-star'"></i>
+
+            <!-- 2 star  -->
+            <i [class]="(element.rating > 1 && element.rating < 2) ? 'fas fa-star-half-alt' : (element.rating >= 2) ? 'fas fa-star' : 'far fa-star'"></i>
+
+            <!-- 3 star  -->
+            <i [class]="(element.rating > 2 && element.rating < 3) ? 'fas fa-star-half-alt' : (element.rating >= 3) ? 'fas fa-star' : 'far fa-star'"></i>
+
+            <!-- 4 star  -->
+            <i [class]="(element.rating > 3 && element.rating < 4) ? 'fas fa-star-half-alt' : (element.rating >= 4) ? 'fas fa-star' : 'far fa-star'"></i>
+
+            <!-- 5 star  -->
+            <i [class]="(element.rating > 4 && element.rating < 5) ? 'fas fa-star-half-alt' : (element.rating >= 5) ? 'fas fa-star' : 'far fa-star'"></i>
+          </p>
+        </td>
+
+        <td>
+          {{element.product.labe}}
+        </td>
+
+        <td  style="text-align:center">
+
+          <button pButton type="button" (click)="Approuving(element)" style="margin : 5px" class="p-button-success p-button-rounded" icon="pi pi-check"></button>
+          <button pButton type="button" (click)="Supprimer(element.id)" style="margin : 5px" class="p-button-warning p-button-rounded" icon="pi pi-trash"></button>
+
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="6">Pas de Commentaire Trouvé.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+</div>
+
+
+
+
+

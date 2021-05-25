@@ -46,6 +46,8 @@ import {DialogCalendarComponent} from "./components/misc/dialog-calendar/dialog-
 import {CommentsValidationsComponent} from "./components/comments-validations/comments-validations.component";
 import {ContactFormsComponent} from "./components/contact-forms/contact-forms.component";
 import {PrimaryModuleComponent} from "./primary-module.component";
+import {AutoCompleteModule} from "primeng/autocomplete";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 
 
@@ -105,6 +107,8 @@ import {PrimaryModuleComponent} from "./primary-module.component";
     InputTextModule,
     ButtonModule,
     TableModule,
+    AutoCompleteModule,
+    MatAutocompleteModule,
   ],
   providers: [
     MatDatepickerModule,

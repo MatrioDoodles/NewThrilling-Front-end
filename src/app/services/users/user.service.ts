@@ -64,6 +64,10 @@ export class UserService {
     return this.httpClient
       .get<User[]>(`${API_URL}/${ENTITY_URL}/searchUserByRole/CONSULTANT`);
   }
+  getUserByRoleAdministrateur(){
+    return this.httpClient
+      .get<User[]>(`${API_URL}/${ENTITY_URL}/searchUserByRole/ADMINISTRATEUR`);
+  }
   UpdateUserBYid(User){
     return this.httpClient
     .put(`${API_URL}/${ENTITY_URL}/ModUser`,User);

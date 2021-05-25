@@ -60,7 +60,7 @@ export class AddProductComponent implements OnInit {
           setTimeout(() => {
             if(this.currentFile!=null){
               this.ProductService.upload(this.currentFile,this.Productresp.id).subscribe()
-              this.router.navigate(['listProducts']);}})}
+              this.router.navigate(['NTPModule/primary-module/listProducts']);}})}
 
       );
 
@@ -71,7 +71,7 @@ export class AddProductComponent implements OnInit {
           setTimeout(() => {
             if(this.currentFile!=null){
               this.ProductService.upload(this.currentFile,this.Productresp.id).subscribe()
-              this.router.navigate(['listProducts']);}})})}
+              this.router.navigate(['NTPModule/primary-module/listProducts']);}})})}
 
 
   }

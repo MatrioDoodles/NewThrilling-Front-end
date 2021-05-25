@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Role, User, UserService} from "../../../../services/users/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Observable} from "rxjs";
+import {FormControl} from "@angular/forms";
+import {startWith,map} from "rxjs/operators";
 
 @Component({
   selector: 'app-add-user',
@@ -14,12 +17,25 @@ export class AddUserComponent implements OnInit {
   userType;
   typeUser:string;
   btnname: string
+  villes: string[] =  [
+    'AGADIR', 'BENI MELLAL', 'BERKANE', 'CASABLANCA', 'ELJADIDA', 'FES', 'INEZGANE', 'KENITRA', 'KHEMISSET', 'KHENIFRA',
+    'SETTAT', 'KHOURIBGA', 'LAAYOUNE', 'MARRAKECH', 'MEKNES', 'MOHAMMADIA', 'NADOR', 'OUJDA', 'RABAT', 'SAFI', 'SALE',
+    'SIDI KACEM', 'TANGER', 'TAZA', 'TEMARA', 'TETOUAN', 'AL HOCEIMA', 'BERRECHID', 'ERRACHIDIA', 'ESSAOUIRA', 'OUARZAZATE',
+    'OUEZZANE', 'SEFROU', 'TIFLET'
+  ];
+  filteredOptions: Observable<string[]>;
+  myControl = new FormControl();
   constructor(private route: ActivatedRoute,
               private UserService: UserService,
               private router: Router) {
   }
 
   ngOnInit(): void {
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value))
+    );
+
     this.UserService.getAllRoles().subscribe(
       response => {
         setTimeout(()=>{
@@ -64,6 +80,11 @@ export class AddUserComponent implements OnInit {
       this.btnname = "Modifier"
     }
 
+  }
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.villes.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
   submit() {
     if (this.route.snapshot.params['updateElement'] === "0") {

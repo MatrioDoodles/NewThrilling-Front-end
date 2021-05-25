@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['NTPModule/primary-module/welcome'])
         else
         this.router.navigate(['NTPModule/primary-module/listOrders'])
-      })
+      },2000)
 
     },
     (error:any) =>{

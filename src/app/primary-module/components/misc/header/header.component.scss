@@ -32,3 +32,33 @@
   box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);
   width: 12.5rem;
 }
+ @media screen and (max-width: 960px) {
+   ::ng-deep  .p-menubar {
+    position: relative;
+  }
+   ::ng-deep .p-menubar .p-menubar-button {
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    color: #ffffff;
+    border-radius: 50%;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  }
+   ::ng-deep  .p-menubar .p-menubar-button:hover {
+    color: #ffffff;
+    background: #eaeaea;
+  }
+   ::ng-deep  .p-menubar .p-menubar-button:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #8dcdff;
+  }
+   ::ng-deep  .p-menubar .p-menubar-root-list {
+    position: absolute;
+    display: none;
+    padding: 0;
+    background: #121315;
+    border: 1px solid #c8c8c8;
+    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);
+    width: 100%;
+  }}

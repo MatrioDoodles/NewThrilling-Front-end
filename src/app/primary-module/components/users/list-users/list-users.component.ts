@@ -45,7 +45,7 @@ export class ListUsersComponent implements OnInit {
       this.userType = userType;
       this.btnname = "Ajouter Un Administrateur"
       this.userTypeString ="Administrateurs"
-    this.UserService.getAllUsers().
+    this.UserService.getUserByRoleAdministrateur().
     subscribe(
       (data: any) => {
         this.users = data

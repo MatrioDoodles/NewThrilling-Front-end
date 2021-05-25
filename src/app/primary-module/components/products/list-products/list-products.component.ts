@@ -15,7 +15,7 @@ import {ConfirmAnnulationComponent} from "../../misc/confirm-annulation/confirm-
 })
 export class ListProductsComponent implements OnInit {
 
-  displayedColumns: string[] = ['picture','label','reference','prixVente', 'prixProd','dateExp','qte','qteAppro','actions'];
+
   Products:Product[];
   ProductType;
   btnname:string;
@@ -46,7 +46,7 @@ export class ListProductsComponent implements OnInit {
         }
       )}
   Modifier(SelectedProduct:Product){
-    this.route.navigate(['addProduct',SelectedProduct.id])
+    this.route.navigate(['NTPModule/primary-module/addProduct',SelectedProduct.id])
   }
   Supprimer(SelectedProduct){
     let choice;

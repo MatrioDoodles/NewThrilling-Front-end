@@ -1,7 +1,7 @@
 <div class="center-card">
-  <div class="card center-card container-lg border" >
-    <div class="card-title" style="padding: 20px; color: #7e1727; font-weight: bold; margin-bottom: 20px;text-decoration: underline;">
-      Ajouter Une Commande
+  <div class="card container-lg border" >
+    <div class="card-header" style="padding: 20px;">
+      <p style="color: #7e1727; font-weight: bold; text-decoration: underline; text-align: center;font-size: x-large"> Ajouter Une Commande</p>
     </div>
     <div class="card-body">
       <div class="alert alert-warning" *ngIf="formProduct.dirty && formProduct.invalid">Veuillez Renseigner tous les champs</div>
@@ -38,17 +38,17 @@
           </mat-form-field>
         </div>
         </div>
-        <div class="col border">
+        <div class="col border align-items-center">
           <div class="row" style="margin-left: 30%">
             <h3 style="font-weight: bold">  Liste des produits </h3>
           </div>
-            <div class="row">
-            <mat-form-field appearance="outline" style="max-width: 90px">
+            <div class="row" style="margin-left: 30%">
+            <mat-form-field appearance="outline" style="max-width: 140px">
               <mat-label>Quantité</mat-label>
               <input matInput #qte [(ngModel)]="selectedQTE" type="number" name="quantity" required>
             </mat-form-field>
             </div>
-          <div class="row force_center">
+          <div class="row force_center "style="margin-left: 15%">
             <p-listbox [options]="products"
                        [(ngModel)]="selectedProduct"
                        optionLabel="label"
@@ -67,7 +67,7 @@
             <div class="row" style="margin-left: 30%">
               <h3 style="font-weight: bold">  Produits Selectionné </h3>
             </div>
-            <div class="row force_center">
+            <div class="row " style="margin-left: 30%">
               <div *ngIf="uniqueProduct">
                 {{OrdertoSend[0].product.label}} x Qté {{OrdertoSend[0].quantity}}
               </div>
@@ -75,7 +75,7 @@
                 Pas de produits selectionné
               </div>
             </div>
-              <div class="row">
+              <div class="row" style="margin-left: 15%">
               <div *ngIf="multiProducts && update2">
               <p-listbox [options]="SelectedProducts"
                          [(ngModel)]="selectedProductD"

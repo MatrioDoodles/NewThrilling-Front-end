@@ -16,7 +16,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import {ButtonModule} from "primeng/button";
 import {PanelModule} from "primeng/panel";
-
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
@@ -35,6 +35,7 @@ import {PanelModule} from "primeng/panel";
     MatInputModule,
     ButtonModule,
     PanelModule,
+    ProgressSpinnerModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true},

@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   password = ''
   errorMsg='Invalid Credentials'
   invalidLogin=false
+  showloader=false
   hide = true;
 
   constructor(private router: Router,
@@ -24,11 +25,16 @@ export class LoginComponent implements OnInit {
     localStorage.clear();
   }
   handleLogin(){
+    this.showloader = true;
   this.Auth.Login(this.username,this.password).subscribe(
     (response:any) =>{
 
+
       // this.footer.setConnected(true);
       setTimeout(()=>{
+        if(response){
+          this.showloader=false;
+        }
         if(sessionStorage.getItem('role')==='ADMINISTRATEUR')
           this.router.navigate(['NTPModule/primary-module/welcome'])
         else
@@ -42,5 +48,12 @@ export class LoginComponent implements OnInit {
     }
   )
 
+  }
+  hideloader() {
+
+    // Setting display of spinner
+    // element to none
+    document.getElementById('loading')
+      .style.display = 'none';
   }
 }

@@ -1,10 +1,7 @@
 .example-spacer {
   flex: 1 1 auto;
 }
-html, body {
-  height: 100%;
-  // color: blanchedalmond;
-}
+
 // .example-container {
 //   width: 500px;
 //   height: 300px;
@@ -33,4 +30,6 @@ html, body {
   color: #ffffff;
 }
 
-
+::ng-deep .card{
+  margin-bottom: 3%;
+}

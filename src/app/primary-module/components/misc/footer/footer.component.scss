@@ -1,8 +1,13 @@
+.footer {
+  background-color: #121315;
+  color: white;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  //background-color: red;
+  //color: white;
+  text-align: center;
+  flex-grow: 0;
 
-.mat-toolbar{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(59,89,152);
-  padding-top: 5%;
+
 }

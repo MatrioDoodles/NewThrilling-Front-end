@@ -2,7 +2,8 @@
 
 <div class="card" style="width: 90%; left: 5%;">
   <p-table #dt3 [value]="SortedOrders" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
-           [rowsPerPageOptions]="[10,25,50]" [loading]="loading" styleClass="p-datatable-customers p-datatable-gridlines"
+           [rowsPerPageOptions]="[10,25,50]" [loading]="loading" [scrollable]="true" scrollHeight="flex"
+           [autoLayout]="true" [responsive]="true" styleClass="p-datatable-customers p-datatable-gridlines"
            [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
     <ng-template pTemplate="caption">
       <h1 style="color: #7e1727; font-weight: bold; text-decoration: underline; text-align: center;">Mes Commandes</h1>
@@ -17,6 +18,12 @@
     </ng-template>
     <ng-template pTemplate="header">
       <tr>
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Date
+
+          </div>
+        </th>
         <th>
           <div class="p-d-flex p-jc-between p-ai-center">
             Matricule
@@ -47,11 +54,6 @@
 
         <th>
           <div class="p-d-flex p-jc-between p-ai-center">
-            Adress Client
-          </div>
-        </th>
-        <th>
-          <div class="p-d-flex p-jc-between p-ai-center">
             Liste Produits Commandé
           </div>
         </th>
@@ -70,6 +72,9 @@
 
     <ng-template pTemplate="body" let-order>
       <tr>
+        <td>
+          {{order.orde_date}}
+        </td>
         <td>
           {{order.matricule}}
         </td>

@@ -2,7 +2,7 @@
 
 <div class="card" style="width: 90%; left: 5%;">
   <p-table #dt3 [value]="Orders" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
-           [rowsPerPageOptions]="[10,25,50]" [loading]="loading" styleClass="p-datatable-customers p-datatable-gridlines"
+           [rowsPerPageOptions]="[10,25,50]" [autoLayout]="true" [responsive]="true"  [loading]="loading" styleClass="p-datatable-customers p-datatable-gridlines"
            [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
     <ng-template pTemplate="caption">
       <h1 style="color: #7e1727; font-weight: bold; text-decoration: underline; text-align: center;">Mes Commandes</h1>

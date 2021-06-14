@@ -55,11 +55,13 @@ export class ListOrdersComponent implements OnInit {
                 this.Orders[i].products.push(response[j].product);
                 this.Orders[i].products[j].qteOrdered=response[j].quantity;
 
-              }})
+              }
+                })
             }
           )
 
         }
+        this.SortedOrders = this.Orders.sort((a, b) => (a.orde_date > b.orde_date ? -1 : 1));
       }
     )}
   Confirmer(SelectedOrder:Order){

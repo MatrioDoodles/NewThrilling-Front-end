@@ -1,7 +1,7 @@
 
 
 <div class="card" style="width: 90%; left: 5%;">
-  <p-table #dt3 [value]="Orders" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+  <p-table #dt3 [value]="SortedOrders" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
            [rowsPerPageOptions]="[10,25,50]" [loading]="loading" styleClass="p-datatable-customers p-datatable-gridlines"
            [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
     <ng-template pTemplate="caption">

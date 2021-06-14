@@ -1,4 +1,9 @@
-
+<div *ngIf="showloader" class="dimPage">
+  <p-progressSpinner
+  style="position: absolute;
+  left: 50%;
+  top: 50%;" ></p-progressSpinner>
+</div>
 <section class="ftco-sectionimg js-fullheight" style="background-image: /*url(../../assets/imgs/bg.jpg)*/
 url('https://mecaluxfr.cdnwm.com/blog/img/logistique-ecommerce-gestion-nombre-references.1.9.jpg');background-size: cover;height: 100%" >
   <div class="container" >
@@ -31,9 +36,6 @@ url('https://mecaluxfr.cdnwm.com/blog/img/logistique-ecommerce-gestion-nombre-re
               </div>
               <div class="w-50 text-md-right">
                 <a href="#" style="color: #fff">Forgot Password</a>
-                <div *ngIf="showloader" class="dimPage">
-                <p-progressSpinner  ></p-progressSpinner>
-                </div>
               </div>
             </div>
           </form>

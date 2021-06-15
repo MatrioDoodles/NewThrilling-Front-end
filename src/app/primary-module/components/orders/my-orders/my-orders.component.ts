@@ -61,8 +61,10 @@ export class MyOrdersComponent implements OnInit {
             (response:OrderProduct[]) => {
               setTimeout(() => {
                 for (let j = 0; j < this.Orders.length; j++) {
-                  this.Orders[i].products.push(response[j].product);
-                  this.Orders[i].products[j].qteOrdered=response[j].quantity;
+                  if(!(this.Orders[i].products.find(e => e.id === response[j].product.id))) {
+                    this.Orders[i].products.push(response[j].product);
+                    this.Orders[i].products[j].qteOrdered = response[j].quantity;
+                  }
 
                 }})
             }

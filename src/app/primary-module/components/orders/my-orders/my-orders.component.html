@@ -19,6 +19,11 @@
       <tr>
         <th>
           <div class="p-d-flex p-jc-between p-ai-center">
+            Date Commande
+          </div>
+        </th>
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
             Matricule
 
           </div>
@@ -45,11 +50,7 @@
           </div>
         </th>
 
-        <th>
-          <div class="p-d-flex p-jc-between p-ai-center">
-            Adress Client
-          </div>
-        </th>
+
         <th>
           <div class="p-d-flex p-jc-between p-ai-center">
             Liste Produits Commandé
@@ -71,6 +72,9 @@
     <ng-template pTemplate="body" let-order>
       <tr>
         <td>
+          {{order.orde_date}}
+        </td>
+        <td>
           {{order.matricule}}
         </td>
         <td>
@@ -85,10 +89,6 @@
 
         <td>
           {{order.client_tel}}
-        </td>
-
-        <td>
-          {{order.client_adress}}
         </td>
 
         <td>
